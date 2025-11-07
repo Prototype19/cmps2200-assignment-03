@@ -18,3 +18,12 @@ $g \leq N < 2g$
 
 Let's assume there optimial solution O with with the lowest number of that doesn't include coin g. Since the optimial solution doesn't include g, all of the coins', in said solution, values' sum C $\in \mathbb{R}$ must combine must be lower than g, or $2^{i}$, otherwise C > N which would not make O the optimial solution. However since $N \geq g$ the optimal solution O much include some more coins to equal value N. But then this would mean O is not the optimial solution as using smaller valued coin will be less optimal than just using coin g. Therefore coin g much be in the Optimial solution O.
 
+1c) 
+
+Both the work and span will be:
+
+$W(n) \in O(log_2(n))$
+$S(n) \in O(log_2(n))$
+
+This is because each greedy step, i, removes $2^i$ from value N. this means it will take $log_2(N)$ steps to account for the whole dollar value of N.
+Since each greedy step take O(1) work to perform, the work will be $O(log_2(n))$. Same logic with Span because each greedy step depends on each others.
