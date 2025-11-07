@@ -27,3 +27,11 @@ $S(n) \in O(log_2(n))$
 
 This is because each greedy step, i, removes $2^i$ from value N. this means it will take $log_2(N)$ steps to account for the whole dollar value of N.
 Since each greedy step take O(1) work to perform, the work will be $O(log_2(n))$. Same logic with Span because each greedy step depends on each others.
+
+2a)
+
+Denominations D = {1, 3, 4}. Value N = 6.
+
+If you follow the previous criterion you would first pick a 4 coin and then two 1 coins to make 6. This is the wrong answer as you can use two 3 coins to make 6 which is a more optimial solution as the previous solution uses 3 coins compared to 2.
+
+2b) 
