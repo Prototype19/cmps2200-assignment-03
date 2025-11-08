@@ -1,7 +1,9 @@
 from main import *
 
 def test_MED():
+    i = 0
     for S, T in test_cases:
+        i += 1
         assert fast_MED(S, T) == MED(S, T)
                                  
 def test_align():
