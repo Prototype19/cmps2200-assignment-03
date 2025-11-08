@@ -87,22 +87,24 @@ def fast_align_MED(S, T):
 
     i, k = S_len - 1, T_len - 1
     while i > 0 or k > 0:
+        y = OPT[i - 1][k]
+        z = OPT[i][k - 1]
         # match: move diagonal
-        if i > 0 and k > 0 and S[i - 1] == T[k - 1] and OPT[i][k] == OPT[i - 1][k - 1]:
+        if i > 0 and k > 0 and S[i - 1] == T[k - 1] and OPT[i - 1][k] == OPT[i][k - 1]:
             alignment_S.append(S[i - 1])
             alignment_T.append(T[k - 1])
             i -= 1
             k -= 1
-        # insert: move left
-        elif k > 0 and OPT[i][k] == OPT[i][k - 1] + 1:
-            alignment_S.append('-')
-            alignment_T.append(T[k - 1])
-            k -= 1
-        # delete: move up
-        elif i > 0 and OPT[i][k] == OPT[i - 1][k] + 1:
+        # insert: move up
+        elif i > 0 and y <= z:
             alignment_S.append(S[i - 1])
             alignment_T.append('-')
             i -= 1
+        # delete: move left
+        elif k > 0 and y > z:
+            alignment_S.append('-')
+            alignment_T.append(T[k - 1])
+            k -= 1
         # edge handling
         else:
             if i > 0 and k > 0:
