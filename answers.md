@@ -35,3 +35,20 @@ Denominations D = {1, 3, 4}. Value N = 6.
 If you follow the previous criterion you would first pick a 4 coin and then two 1 coins to make 6. This is the wrong answer as you can use two 3 coins to make 6 which is a more optimial solution as the previous solution uses 3 coins compared to 2.
 
 2b) 
+
+The optimal substructure property is that for an abritary set of denominations D, ex {1, 3, 5, 6 ..}, it is possible for the the value N to made up of D if and only if for a d $\in$ D, N - d is also be able to be made up of denominations of D. If N = 0 then its always possible for D is make it up.
+
+If you want to minimize the number of denominations, d $\in$ D, used to make up a value N use the following recursive relation:
+
+$OPT(N) = min_{d $\in$ D}(1 + OPT(N-d))$
+
+This basically says that the algorithm with take the shortest 'path', if you assume each node is a denomination d, to a value N.
+
+2c)
+
+The work and Span of my top down algorithmn is:
+
+$W(n) \in O(n)$
+$S(n) \in O(log(n))$
+
+
